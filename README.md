@@ -5,21 +5,28 @@ End-to-end workflow to predict bank customer churn on a 10k-row dataset. Include
 [Try The Application](https://mgfinalproject-l4j2rwlfypnf5mmgknennu.streamlit.app/)
 
 ## Project Structure
-- `data/raw/main_data.csv` — original dataset
-- `data/processed/main_data_processed.csv` — processed versions used in notebooks
-- `notebooks/`
-  - `01_eda.ipynb` — dataset overview, target imbalance (~80/20), categorical churn visuals
-  - `02_preprocessing_feature_eng.ipynb` — encoding, scaling, feature engineering, save processed CSV
-  - `03_model_benchmarking.ipynb` — multiple models (class weights), F1/ROC-AUC comparison, threshold tuning
-  - `04_hyperparameter_tuning.ipynb` — Optuna + LightGBM search, best params, threshold tuning, test eval
-- `src/`
-  - `data_prep.py` — feature_engineering_pipeline, preprocess_and_align (OHE + column alignment)
-  - `visual.py` — churn plots, outlier helpers
-  - `features.py` — (placeholder)
-- `models/` — trained LightGBM model (`lgbm_final_model.pkl`) and expected columns
-- `reports/` — sample churn prediction report CSV
-- `main_pipeline.py` — batch prediction pipeline using saved model
-- `requirements.txt` — dependencies
+
+```
+CustomerChurnPredictionSystem/
+├── app.py              
+├── main_pipeline.py                      
+├── requirements.txt      
+├── Readme.md            
+├── data/
+│  ├── processed/
+│  └── raw/ 
+├── models/ 
+└──notebooks/
+│  ├── 01_eda.ipynb              
+│  ├── 02_preprocessing_feature_eng.ipynb                  
+│  ├── 03_model_benchmarking.ipynb
+│  └── 04_hyperparameter_tuning.ipynb
+├── reports/
+└──src/   
+   ├── data_prep.py             
+   ├── features.py                
+   └── visual.py
+```
 
 ## Notebooks
 1) **EDA (`01_eda.ipynb`)**
